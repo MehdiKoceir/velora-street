@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-gold-50: #fefcf0;
+  --color-gold-100: #fdf7df;
+  --color-gold-200: #faebd2;
+  --color-gold-300: #f4d4a8;
+  --color-gold-400: #ecb373;
+  --color-gold-500: #cca05a; /* Luxury Gold Primary Accent */
+  --color-gold-600: #aa8144;
+  --color-gold-700: #886231;
+  --color-gold-800: #66461f;
+  --color-gold-900: #442a10;
+
+  --color-red-deep: #991b1b;
+  --color-red-bright: #dc2626;
+  --color-charcoal-light: #2d2d2d;
+  --color-charcoal-dark: #121212;
+  --color-charcoal-deep: #0a0a0a;
+}
+
+/* Base custom definitions */
+@layer utilities {
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(204, 160, 90, 0.4);
+  }
+  .border-glow-gold {
+    box-shadow: 0 0 15px rgba(204, 160, 90, 0.15);
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-charcoal-deep);
+  color: #f3f4f6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Elegant scrollbars for luxury theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-500);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-400);
+}
+

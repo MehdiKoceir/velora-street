@@ -1,0 +1,165 @@
+{
+  "entities": {
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "Representative of a premium fashion streetwear article on the Velora Street catalog",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "image": { "type": "string" },
+        "price": { "type": "number" },
+        "availability": { "type": "boolean" },
+        "preparationTime": { "type": "number" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "name", "price", "category", "availability"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "An online order placed by a customer",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "deliveryAddress": { "type": "string" },
+        "serviceType": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "driverId": { "type": "string" }
+      },
+      "required": ["id", "orderNumber", "customerName", "phone", "email", "serviceType", "status", "timestamp"]
+    },
+    "Reservation": {
+      "title": "Reservation",
+      "description": "A table or seat booking reservation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "guests": { "type": "number" },
+        "specialRequests": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "customerName", "phone", "email", "date", "time", "guests", "status"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "A registered customer account in our CRM database",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "password": { "type": "string" },
+        "totalOrders": { "type": "number" },
+        "totalSpending": { "type": "number" },
+        "lastOrder": { "type": "string" },
+        "loyaltyPoints": { "type": "number" },
+        "segment": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "email", "password", "loyaltyPoints", "segment"]
+    },
+    "Driver": {
+      "title": "Driver",
+      "description": "A delivery courier or driver for takeout",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "status"]
+    },
+    "Ingredient": {
+      "title": "Ingredient",
+      "description": "An inventory ingredient tracked in our stock level queue",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "stockLevel": { "type": "number" },
+        "unit": { "type": "string" },
+        "reorderLevel": { "type": "number" },
+        "supplier": { "type": "string" },
+        "pricePerUnit": { "type": "number" },
+        "lastRestocked": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "stockLevel", "unit", "reorderLevel", "status"]
+    },
+    "CustomerReview": {
+      "title": "CustomerReview",
+      "description": "Feedbacks/reviews submitted by customers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "name", "rating", "comment", "date"]
+    },
+    "SystemNotification": {
+      "title": "SystemNotification",
+      "description": "Trace messages and automatic push notices",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "channel": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "type", "title", "message", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/menu": {
+      "schema": "MenuItem",
+      "description": "Restaurant menu collections"
+    },
+    "/orders": {
+      "schema": "Order",
+      "description": "Customer ordering pipeline"
+    },
+    "/reservations": {
+      "schema": "Reservation",
+      "description": "Seating reservations"
+    },
+    "/customers": {
+      "schema": "Customer",
+      "description": "CRM customer list"
+    },
+    "/drivers": {
+      "schema": "Driver",
+      "description": "Chefs courier contacts list"
+    },
+    "/inventory": {
+      "schema": "Ingredient",
+      "description": "Kitchen supply stock database"
+    },
+    "/reviews": {
+      "schema": "CustomerReview",
+      "description": "Public review feedback log"
+    },
+    "/notifications": {
+      "schema": "SystemNotification",
+      "description": "Internal and CRM notification queue"
+    }
+  }
+}

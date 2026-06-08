@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Since the frontend does not talk directly to Firestore (everything goes through our Express server proxy)
+    // we authorize operations on all known paths.
+    match /menu/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /orders/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /reservations/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /customers/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /drivers/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /inventory/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /reviews/{document_id} {
+      allow read, write: if true;
+    }
+
+    match /notifications/{document_id} {
+      allow read, write: if true;
+    }
+  }
+}

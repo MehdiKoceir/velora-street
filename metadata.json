@@ -1,0 +1,6 @@
+{
+  "name": "Velora Street Premium Store",
+  "description": "Premium luxury streetwear e-commerce storefront and operational control dashboard for Velora Street in Milano, Italy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
